@@ -9,7 +9,12 @@ public class App {
         AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext();
         appContext.scan("com.hkarabakla");
         appContext.refresh();
-        
+
+        //Sıralama değiştirilmemeli!
+
+        CategoryService categoryService=(CategoryService) appContext.getBean("categoryService");
+        categoryService.categoryOperations();
+
         BookService bookService = (BookService) appContext.getBean("bookService");
         bookService.bookOperations();
 

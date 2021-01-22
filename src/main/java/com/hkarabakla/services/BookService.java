@@ -59,21 +59,15 @@ public class BookService {
         List<Author> authorList2 = new ArrayList<>();authorList2.add(a2);
         b2.setAuthorList(authorList2);
 
+        Category c= bookRepo.findByCategorynameContainingIgnoreCase("Programming");
 
-        Category c1 = new Category();
-        c1.setName("Computer Science");
-        // c1.setBooks(Collections.singletonList(b1));
-        b1.setCategory(c1);
-        b2.setCategory(c1);
+        b1.setCategory(c);
+        b2.setCategory(c);
 
         bookRepo.save(b1);
         bookRepo.save(b2);
 
-        System.out.println("1=======");
-        System.out.println(bookRepo.findAll());
-        System.out.println("2=======");
-        System.out.println(bookRepo.findAllByNameContainingIgnoreCase("java"));
-        System.out.println("=======");
+        System.out.println("Kitap ismine göre arama\n"+bookRepo.findAllByNameContainingIgnoreCase("Java")+"\n");
 
     }
 }

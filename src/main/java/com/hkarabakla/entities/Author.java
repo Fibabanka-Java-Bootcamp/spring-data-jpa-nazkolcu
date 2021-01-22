@@ -12,7 +12,7 @@ public class Author {
 
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)//fetch ekledim
     @JoinTable(
             name = "author_books",
             joinColumns = @JoinColumn(name = "author_id"),
@@ -35,7 +35,6 @@ public class Author {
         this.name = name;
     }
 
-
     public List<Book> getBooks() {
         return books;
     }
@@ -49,7 +48,6 @@ public class Author {
         return "Author{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-              //  ", books=" + books +
                 '}';
     }
 

@@ -12,19 +12,17 @@ import java.util.Set;
 public class Book {
 
     @Id
-   // @GeneratedValue(generator = "uuid")
-   // @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
     private String isbn;
 
-
     private String name;
-    @Column(nullable = false, length = 200)
-    private String description;
     private LocalDate publishedDate;
     private LocalDate addedDate;
     private Double price;
     private String currency;
     private String imageUrl;
+
+    @Column(nullable = false, length = 200)
+    private String description;
 
     @ManyToMany(mappedBy = "books")
     private List<Orders> orders;
@@ -92,8 +90,6 @@ public class Book {
         this.orders = orders;
     }
 
-
-
     public List<Author> getAuthorList() {
         return authorList;
     }
@@ -101,8 +97,6 @@ public class Book {
     public void setAuthorList(List<Author> authorList) {
         this.authorList = authorList;
     }
-
-
 
     public String getIsbn() {
         return isbn;
@@ -127,7 +121,6 @@ public class Book {
     public void setCategory(Category category) {
         this.category = category;
     }
-
 
     @Override
     public String toString() {

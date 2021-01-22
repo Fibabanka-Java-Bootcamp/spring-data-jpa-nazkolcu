@@ -9,14 +9,12 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface OrderRepo extends CrudRepository<Orders, Integer>{
-//User findAllByUserContainingOrderByUser(String User);
-//List<Orders> findAllByUser(String User);
 
-//List<Orders> findAllByUseridContainingIgnoreCase(String name);
-    Orders findByUser_NameContainingIgnoreCase(String name);
+    List<Orders> findByUser_NameContainingIgnoreCase(String name);
 
     @Query("select u from User u where u.name = ?1")
     User findByUsernameContainingIgnoreCase(String name);
+
     @Query("select u from User u where u.id = ?1")
     User findByUserid(int id);
 

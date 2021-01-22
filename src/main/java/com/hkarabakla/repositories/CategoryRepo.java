@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CategoryRepo extends CrudRepository<Category, Integer> {
-List<Book> findAllByBooks_NameContainingIgnoreCase(String name);
+
 }

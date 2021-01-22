@@ -12,7 +12,6 @@ public class User {
 
     private String name;
 
-
     @OneToMany(mappedBy = "user")
     private List<Orders> orders;
 
@@ -27,7 +26,6 @@ public class User {
     public void setOrders(List<Orders> orders) {
         this.orders = orders;
     }
-
 
     public int getId() {
         return id;
@@ -59,7 +57,6 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address=" + address +
-             //   ", orders=" + orders +
                 '}';
     }
 }

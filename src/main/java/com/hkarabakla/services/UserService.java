@@ -46,34 +46,11 @@ public class UserService {
         address3.setCity("Istanbul");
         address3.setZipcode(123);
         u3.setAddress(address3);
-        //  Orders o = new Orders();
-       // o.setCreated_at(LocalDate.now());
-       // o.setTotal(10.0);
-
-       // u3.setOrders(Collections.singletonList(o));
 
         repo.save(u);
         repo.save(u2);
         repo.save(u3);
 
-        System.out.println("!!!!!!!");
-        System.out.println(repo.findAll());
-        System.out.println("!!!!!!!");
-
-
-
-
-
-/*
-        // System.out.println(u.getId());
-
-        System.out.println(repo.findAllByNameContainingIgnoreCase("naz"));
-
-        System.out.println("___");
-        System.out.println(repo.findAll());
-        System.out.println("___");
-        //  System.out.println(repo.findAllByOrder(u.getName()));
- */
     }
 
 }
