@@ -4,15 +4,19 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Category {
+public class Author {
 
-    @Id
     @GeneratedValue
+    @Id
     private int id;
 
     private String name;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "author_books",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_isbn"))
     private List<Book> books;
 
     public int getId() {
@@ -31,6 +35,7 @@ public class Category {
         this.name = name;
     }
 
+
     public List<Book> getBooks() {
         return books;
     }
@@ -41,10 +46,12 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "id=" + id +
+        return "Author{" +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-               // ", books=" + books +
+              //  ", books=" + books +
                 '}';
     }
+
+
 }
